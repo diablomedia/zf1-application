@@ -6,6 +6,10 @@
     backupGlobals="true"
     stderr="true"
     colors="true">
+    <php>
+        <includePath>./tests</includePath>
+        <const name="TESTS_ZEND_LOADER_AUTOLOADER_MULTIVERSION_ENABLED" value="false" />
+    </php>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>

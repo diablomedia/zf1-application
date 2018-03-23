@@ -643,6 +643,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
 
     /**
      * @group ZF-7550
+     * @doesNotPerformAssertions
      */
     public function testRequestingPluginsByAutoloadableClassNameShouldNotRaiseFatalErrors()
     {
@@ -696,6 +697,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
 
     /**
      * @group ZF-7696
+     * @doesNotPerformAssertions
      */
     public function testUsingFallbackAutoloaderWithModulesShouldNotResultInFrontcontrollerNotFoundWarning()
     {
