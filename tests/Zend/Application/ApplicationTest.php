@@ -20,8 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Application */
-require_once 'Zend/Application.php';
 
 /**
  * @category   Zend

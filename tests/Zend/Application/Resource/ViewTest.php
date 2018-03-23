@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Application/Resource/View.php';
 
 /**
  * @category   Zend

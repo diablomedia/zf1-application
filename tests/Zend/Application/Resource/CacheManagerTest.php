@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * Zend_Application_Resource_Cachemanager
- */
-require_once 'Zend/Application/Resource/Cachemanager.php';
 
 /**
  * @category   Zend
