@@ -16,17 +16,17 @@
         "diablomedia/zendframework1-config": "^1.0.0",
         "diablomedia/zendframework1-loader": "^1.0.0",
         "diablomedia/zendframework1-registry": "^1.0.0",
-        "diablomedia/zendframework1-cache": "dev-master",
-        "diablomedia/zendframework1-controller": "dev-master",
-        "diablomedia/zendframework1-http": "dev-master",
-        "diablomedia/zendframework1-layout": "dev-master",
-        "diablomedia/zendframework1-locale": "dev-master",
-        "diablomedia/zendframework1-log": "dev-master",
-        "diablomedia/zendframework1-mail": "dev-master",
-        "diablomedia/zendframework1-navigation": "dev-master",
-        "diablomedia/zendframework1-session": "dev-master",
-        "diablomedia/zendframework1-translate": "dev-master",
-        "diablomedia/zendframework1-view": "dev-master"
+        "diablomedia/zendframework1-cache": "*",
+        "diablomedia/zendframework1-controller": "*",
+        "diablomedia/zendframework1-http": "*",
+        "diablomedia/zendframework1-layout": "*",
+        "diablomedia/zendframework1-locale": "*",
+        "diablomedia/zendframework1-log": "*",
+        "diablomedia/zendframework1-mail": "*",
+        "diablomedia/zendframework1-navigation": "*",
+        "diablomedia/zendframework1-session": "*",
+        "diablomedia/zendframework1-translate": "*",
+        "diablomedia/zendframework1-view": "*"
     },
     "autoload": {
         "psr-0": {
