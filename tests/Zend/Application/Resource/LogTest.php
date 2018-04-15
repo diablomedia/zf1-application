@@ -41,9 +41,9 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
         }
 
         Zend_Loader_Autoloader::resetInstance();
-        $this->autoloader = Zend_Loader_Autoloader::getInstance();
+        $this->autoloader  = Zend_Loader_Autoloader::getInstance();
         $this->application = new Zend_Application('testing');
-        $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
+        $this->bootstrap   = new Zend_Application_Bootstrap_Bootstrap($this->application);
 
         Zend_Controller_Front::getInstance()->resetInstance();
     }
@@ -88,7 +88,7 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
 
     public function testOptionsPassedToResourceAreUsedToInitializeLog()
     {
-        $stream = fopen('php://memory', 'w+', false);
+        $stream  = fopen('php://memory', 'w+', false);
         $options = array('memory' => array(
             'writerName'   => 'Stream',
             'writerParams' => array(
@@ -100,7 +100,7 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
 
-        $log      = $resource->getLog();
+        $log = $resource->getLog();
         $this->assertTrue($log instanceof Zend_Log);
 
         $log->log($message = 'logged-message', Zend_Log::INFO);
@@ -118,10 +118,10 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
             'stream' => array(
                 'writerName'   => 'Stream',
                 'writerParams' => array(
-                    'stream' => "php://memory",
+                    'stream' => 'php://memory',
                     'mode'   => 'a'
                 ),
-                'filterName' => 'Priority',
+                'filterName'   => 'Priority',
                 'filterParams' => array(
                     'priority' => '4'
                 ),
@@ -137,18 +137,18 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
      */
     public function testInitializationWithFilterAndFormatter()
     {
-        $stream = fopen('php://memory', 'w+');
+        $stream  = fopen('php://memory', 'w+');
         $options = array(
             'memory' => array(
-                'writerName' => 'Stream',
+                'writerName'   => 'Stream',
                 'writerParams' => array(
                      'stream' => $stream,
                 ),
-                'filterName' => 'Priority',
+                'filterName'   => 'Priority',
                 'filterParams' => array(
                     'priority' => Zend_Log::INFO,
                 ),
-                'formatterName' => 'Simple',
+                'formatterName'   => 'Simple',
                 'formatterParams' => array(
                     'format' => '%timestamp%: %message%',
                 )

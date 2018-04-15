@@ -92,8 +92,8 @@ class Zend_Application_Resource_LayoutTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Layout($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
-        $layout   = $resource->getLayout();
-        $test     = array(
+        $layout = $resource->getLayout();
+        $test   = array(
             'layout'     => $layout->getLayout(),
             'layoutPath' => $layout->getLayoutPath(),
         );

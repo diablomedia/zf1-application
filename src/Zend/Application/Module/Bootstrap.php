@@ -31,8 +31,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Application_Module_Bootstrap
-    extends Zend_Application_Bootstrap_Bootstrap
+abstract class Zend_Application_Module_Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
     /**
      * Set this explicitly to reduce impact of determining module name

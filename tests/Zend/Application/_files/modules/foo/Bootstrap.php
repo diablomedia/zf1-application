@@ -27,7 +27,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Foo_Bootstrap extends Zend_Application_Module_Bootstrap
+class foo_Bootstrap extends Zend_Application_Module_Bootstrap
 {
     public $bootstrapped = false;
 
@@ -37,7 +37,7 @@ class Foo_Bootstrap extends Zend_Application_Module_Bootstrap
 
     protected function _bootstrap($resource = null)
     {
-        $this->bootstrapped = true;
+        $this->bootstrapped          = true;
         $this->getApplication()->foo = true;
     }
 }

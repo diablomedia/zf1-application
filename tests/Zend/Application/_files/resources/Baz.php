@@ -31,7 +31,7 @@ class Zend_Application_BootstrapTest_Resource_Baz extends Zend_Application_Resou
 {
     public function init()
     {
-        $o = new stdClass();
+        $o      = new stdClass();
         $o->baz = 'Baz';
         return $o;
     }

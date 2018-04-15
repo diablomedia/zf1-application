@@ -79,7 +79,7 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
     {
         $resource = new Zend_Application_Resource_View(array());
         $resource->init();
-        $view = $resource->getView();
+        $view         = $resource->getView();
         $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');
         $this->assertSame($view, $viewRenderer->view);
     }
@@ -98,10 +98,10 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
 
     public function testDoctypeIsSet()
     {
-        $options = array('doctype' => 'XHTML1_FRAMESET');
+        $options  = array('doctype' => 'XHTML1_FRAMESET');
         $resource = new Zend_Application_Resource_View($options);
         $resource->init();
-        $view  = $resource->getView();
+        $view = $resource->getView();
         $this->assertEquals('XHTML1_FRAMESET', $view->doctype()->getDoctype());
     }
 
@@ -110,12 +110,12 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
      */
     public function testContentTypeIsSet()
     {
-        $contentType = 'text/html; charset=UTF-8';
-        $options = array('contentType' => $contentType);
-        $resource = new Zend_Application_Resource_View($options);
+        $contentType    = 'text/html; charset=UTF-8';
+        $options        = array('contentType' => $contentType);
+        $resource       = new Zend_Application_Resource_View($options);
         $headMetaHelper = $resource->init()->headMeta();
 
-        $actual = null;
+        $actual    = null;
         $container = $headMetaHelper->getContainer();
         foreach ($container as $item) {
             if ('Content-Type' == $item->{$item->type}) {
@@ -140,11 +140,11 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
             'doctype' => 'HTML5',
             'charset' => $charset,
         );
-        $resource = new Zend_Application_Resource_View($options);
-        $view = $resource->init();
+        $resource       = new Zend_Application_Resource_View($options);
+        $view           = $resource->init();
         $headMetaHelper = $view->headMeta();
 
-        $actual = null;
+        $actual    = null;
         $container = $headMetaHelper->getContainer();
         foreach ($container as $item) {
             if ('charset' == $item->type) {
@@ -166,16 +166,16 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
      */
     public function testSetMetaCharsetShouldOnlyAvailableForHtml5()
     {
-    	$charset = 'UTF-8';
+        $charset = 'UTF-8';
         $options = array(
             'doctype' => 'XHTML1_STRICT',
             'charset' => $charset,
         );
-        $resource = new Zend_Application_Resource_View($options);
-        $view = $resource->init();
+        $resource       = new Zend_Application_Resource_View($options);
+        $view           = $resource->init();
         $headMetaHelper = $view->headMeta();
 
-        $actual = null;
+        $actual    = null;
         $container = $headMetaHelper->getContainer();
         foreach ($container as $item) {
             if ('charset' == $item->type) {
@@ -204,7 +204,7 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
             )
         );
         $resource = new Zend_Application_Resource_View($options);
-        $view = $resource->init();
+        $view     = $resource->init();
 
         $this->assertEquals('barbapapa', $view->foo);
         $this->assertEquals('barbazoo', $view->bar);
@@ -220,7 +220,7 @@ class Zend_Application_Resource_ViewTest extends PHPUnit\Framework\TestCase
         Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
 
         $resource = new Zend_Application_Resource_View(array('encoding' => 'UTF-8'));
-        $view = $resource->init();
+        $view     = $resource->init();
 
         $this->assertSame($view, $viewRenderer->view);
     }

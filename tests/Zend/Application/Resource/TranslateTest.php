@@ -135,8 +135,10 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
     public function testTranslationIsAddedIfRegistryKeyExistsAlready()
     {
         $options1 = array('foo' => 'bar');
-        $options2 = array_merge_recursive($this->_translationOptions,
-                                          array('data' => array('message4' => 'bericht4')));
+        $options2 = array_merge_recursive(
+            $this->_translationOptions,
+                                          array('data' => array('message4' => 'bericht4'))
+        );
 
         $translate = new Zend_Translate(Zend_Translate::AN_ARRAY, $options1);
         Zend_Registry::set('Zend_Translate', $translate);
@@ -157,9 +159,9 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         $configCache = array(
             'translate' => array(
                 'frontend' => array(
-                    'name' => 'Core',
+                    'name'    => 'Core',
                     'options' => array(
-                        'lifetime' => 120,
+                        'lifetime'                => 120,
                         'automatic_serialization' => true
                     )
                 ),
@@ -170,9 +172,9 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         );
         $this->bootstrap->registerPluginResource('cachemanager', $configCache);
 
-        $options = $this->_translationOptions;
+        $options          = $this->_translationOptions;
         $options['cache'] = 'translate';
-        $resource = new Zend_Application_Resource_Translate($options);
+        $resource         = new Zend_Application_Resource_Translate($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
 
@@ -194,7 +196,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
             'locale' => 'auto'
         );
 
-        $resource = new Zend_Application_Resource_Translate($options);
+        $resource   = new Zend_Application_Resource_Translate($options);
         $translator = $resource->init();
 
         $this->assertEquals(new Zend_Translate($options), $translator);
@@ -221,7 +223,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
             'locale' => 'auto'
         );
 
-        $resource = new Zend_Application_Resource_Translate($options);
+        $resource   = new Zend_Application_Resource_Translate($options);
         $translator = $resource->init();
     }
 

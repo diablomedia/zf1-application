@@ -92,7 +92,7 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Locale($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
-        $locale   = $resource->getLocale();
+        $locale = $resource->getLocale();
         $this->assertEquals('kok_IN', $locale->__toString());
         $this->assertTrue(Zend_Registry::isRegistered('Foo_Bar'));
         $this->assertSame(Zend_Registry::get('Foo_Bar'), $locale);
@@ -101,14 +101,14 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
     public function testOptionsPassedToResourceAreUsedToSetLocaleState1()
     {
         $options = array(
-            'default'      => 'kok_IN',
-            'force' => true
+            'default' => 'kok_IN',
+            'force'   => true
         );
 
         $resource = new Zend_Application_Resource_Locale($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
-        $locale   = $resource->getLocale();
+        $locale = $resource->getLocale();
 
         // This test will fail if your configured locale is kok_IN
         $this->assertEquals('kok_IN', $locale->__toString());
@@ -121,13 +121,13 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
     public function testSetCache()
     {
         $cache = Zend_Cache::factory('Core', 'Black Hole', array(
-            'lifetime' => 120,
+            'lifetime'                => 120,
             'automatic_serialization' => true
         ));
 
         $config = array(
             'default' => 'fr_FR',
-            'cache' => $cache,
+            'cache'   => $cache,
         );
         $resource = new Zend_Application_Resource_Locale($config);
         $resource->init();
@@ -144,9 +144,9 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
         $configCache = array(
             'memory' => array(
                 'frontend' => array(
-                    'name' => 'Core',
+                    'name'    => 'Core',
                     'options' => array(
-                        'lifetime' => 120,
+                        'lifetime'                => 120,
                         'automatic_serialization' => true
                     )
                 ),
@@ -160,7 +160,7 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
 
         $config = array(
             'bootstrap' => $this->bootstrap,
-            'cache' => 'memory',
+            'cache'     => 'memory',
         );
         $resource = new Zend_Application_Resource_Locale($config);
         $resource->init();

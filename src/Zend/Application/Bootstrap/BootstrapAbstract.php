@@ -31,9 +31,9 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_Application_Bootstrap_BootstrapAbstract
-    implements Zend_Application_Bootstrap_Bootstrapper,
-               Zend_Application_Bootstrap_ResourceBootstrapper
+abstract class Zend_Application_Bootstrap_BootstrapAbstract implements
+    Zend_Application_Bootstrap_Bootstrapper,
+    Zend_Application_Bootstrap_ResourceBootstrapper
 {
     /**
      * @var Zend_Application|Zend_Application_Bootstrap_Bootstrapper
@@ -113,7 +113,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         $this->_options = $this->mergeOptions($this->_options, $options);
 
-        $options = array_change_key_case($options, CASE_LOWER);
+        $options           = array_change_key_case($options, CASE_LOWER);
         $this->_optionKeys = array_merge($this->_optionKeys, array_keys($options));
 
         $methods = get_class_methods($this);
@@ -261,7 +261,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         if ($resource instanceof Zend_Application_Resource_Resource) {
             $resource->setBootstrap($this);
-            $pluginName = $this->_resolvePluginResourceName($resource);
+            $pluginName                          = $this->_resolvePluginResourceName($resource);
             $this->_pluginResources[$pluginName] = $resource;
             return $this;
         }
@@ -355,10 +355,10 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
             if (class_exists($plugin)
             && is_subclass_of($plugin, 'Zend_Application_Resource_Resource')
             ) { //@SEE ZF-7550
-                $spec = (array) $spec;
+                $spec              = (array) $spec;
                 $spec['bootstrap'] = $this;
-                $instance = new $plugin($spec);
-                $pluginName = $this->_resolvePluginResourceName($instance);
+                $instance          = new $plugin($spec);
+                $pluginName        = $this->_resolvePluginResourceName($instance);
                 unset($this->_pluginResources[$plugin]);
                 $this->_pluginResources[$pluginName] = $instance;
 
@@ -667,8 +667,8 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
         $classResources = $this->getClassResources();
         if (array_key_exists($resourceName, $classResources)) {
             $this->_started[$resourceName] = true;
-            $method = $classResources[$resourceName];
-            $return = $this->$method();
+            $method                        = $classResources[$resourceName];
+            $return                        = $this->$method();
             unset($this->_started[$resourceName]);
             $this->_markRun($resourceName);
 
@@ -681,8 +681,8 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
 
         if ($this->hasPluginResource($resource)) {
             $this->_started[$resourceName] = true;
-            $plugin = $this->getPluginResource($resource);
-            $return = $plugin->init();
+            $plugin                        = $this->getPluginResource($resource);
+            $return                        = $plugin->init();
             unset($this->_started[$resourceName]);
             $this->_markRun($resourceName);
 
@@ -705,9 +705,9 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      */
     protected function _loadPluginResource($resource, $options)
     {
-        $options   = (array) $options;
+        $options              = (array) $options;
         $options['bootstrap'] = $this;
-        $className = $this->getPluginLoader()->load(strtolower($resource), false);
+        $className            = $this->getPluginLoader()->load(strtolower($resource), false);
 
         if (!$className) {
             return false;
@@ -720,7 +720,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
         if (isset($instance->_explicitType)) {
             $resource = $instance->_explicitType;
         }
-        $resource = strtolower($resource);
+        $resource                          = strtolower($resource);
         $this->_pluginResources[$resource] = $instance;
 
         return $resource;
@@ -756,7 +756,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         if (isset($resource->_explicitType)) {
             $pluginName = $resource->_explicitType;
-        } else  {
+        } else {
             $className  = get_class($resource);
             $pluginName = $className;
             $loader     = $this->getPluginLoader();

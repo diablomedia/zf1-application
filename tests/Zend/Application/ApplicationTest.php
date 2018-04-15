@@ -177,8 +177,8 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
     public function testPassingPhpSettingsSetsIniValues()
     {
         $this->iniOptions[] = 'html_errors';
-        $orig     = ini_get('html_errors');
-        $expected = $orig ? 0 : 1;
+        $orig               = ini_get('html_errors');
+        $expected           = $orig ? 0 : 1;
         $this->application->setOptions(array(
             'phpSettings' => array(
                 'html_errors' => $expected,
@@ -190,8 +190,8 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
     public function testPassingPhpSettingsAsArrayShouldConstructDotValuesAndSetRelatedIniValues()
     {
         $this->iniOptions[] = 'date.default_latitude';
-        $orig     = ini_get('date.default_latitude');
-        $expected = '1.234';
+        $orig               = ini_get('date.default_latitude');
+        $expected           = '1.234';
         $this->application->setOptions(array(
             'phpSettings' => array(
                 'date' => array(
@@ -373,14 +373,14 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
 
     public function testPassingZendConfigToConstructorShouldLoadOptions()
     {
-        $config = new Zend_Config_Ini(dirname(__FILE__) . '/_files/appconfig.ini', 'testing');
+        $config      = new Zend_Config_Ini(dirname(__FILE__) . '/_files/appconfig.ini', 'testing');
         $application = new Zend_Application('testing', $config);
         $this->assertTrue($application->hasOption('foo'));
     }
 
     public function testPassingArrayOptionsToConstructorShouldLoadOptions()
     {
-        $config = new Zend_Config_Ini(dirname(__FILE__) . '/_files/appconfig.ini', 'testing');
+        $config      = new Zend_Config_Ini(dirname(__FILE__) . '/_files/appconfig.ini', 'testing');
         $application = new Zend_Application('testing', $config->toArray());
         $this->assertTrue($application->hasOption('foo'));
     }
@@ -429,10 +429,10 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
                 'Zend_Application_Test_Path' => dirname(__FILE__),
             ),
             'Resources' => array(
-                'modules' => array(),
+                'modules'         => array(),
                 'FrontController' => array(
-                    'baseUrl'             => '/foo',
-                    'moduleDirectory'     => dirname(__FILE__) . '/_files/modules',
+                    'baseUrl'         => '/foo',
+                    'moduleDirectory' => dirname(__FILE__) . '/_files/modules',
                 ),
             ),
             'Bootstrap' => array(
@@ -451,7 +451,8 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
     public function testSetOptionsShouldProperlyMergeTwoConfigFileOptions()
     {
         $application = new Zend_Application(
-            'production', dirname(__FILE__) .
+            'production',
+            dirname(__FILE__) .
             '/_files/zf-6679-1.inc'
         );
         $options = $application->getOptions();
@@ -505,9 +506,11 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
      */
     public function testCanExecuteBoostrapResourceViaApplicationInstanceBootstrapMethod()
     {
-        $application = new Zend_Application('testing', array(
+        $application = new Zend_Application(
+            'testing',
+            array(
             'bootstrap' => array(
-                'path' => dirname(__FILE__) . '/_files/ZfAppBootstrap.php',
+                'path'  => dirname(__FILE__) . '/_files/ZfAppBootstrap.php',
                 'class' => 'ZfAppBootstrap'
                 )
             )
@@ -520,7 +523,9 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
 
     public function testOptionsCanHandleMuiltipleConigFiles()
     {
-        $application = new Zend_Application('testing', array(
+        $application = new Zend_Application(
+            'testing',
+            array(
             'config' => array(
                 dirname(__FILE__) . '/_files/Zf-6719-1.ini',
                 dirname(__FILE__) . '/_files/Zf-6719-2.ini'

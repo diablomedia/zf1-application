@@ -56,12 +56,12 @@ class Zend_Application_Resource_Modules extends Zend_Application_Resource_Resour
     public function init()
     {
         $bootstraps = array();
-        $bootstrap = $this->getBootstrap();
+        $bootstrap  = $this->getBootstrap();
         $bootstrap->bootstrap('FrontController');
         $front = $bootstrap->getResource('FrontController');
 
-        $modules = $front->getControllerDirectory();
-        $default = $front->getDefaultModule();
+        $modules           = $front->getControllerDirectory();
+        $default           = $front->getDefaultModule();
         $curBootstrapClass = get_class($bootstrap);
         foreach ($modules as $module => $moduleDirectory) {
             $bootstrapClass = $this->_formatModuleName($module) . '_Bootstrap';
@@ -75,7 +75,9 @@ class Zend_Application_Resource_Modules extends Zend_Application_Resource_Resour
                     ) {
                         throw new Zend_Application_Resource_Exception(
                             sprintf(
-                                $eMsgTpl, $module, $bootstrapClass
+                                $eMsgTpl,
+                                $module,
+                                $bootstrapClass
                             )
                         );
                     } elseif ($default == $module) {
@@ -84,7 +86,9 @@ class Zend_Application_Resource_Modules extends Zend_Application_Resource_Resour
                             if (!class_exists($bootstrapClass, false)) {
                                 throw new Zend_Application_Resource_Exception(
                                     sprintf(
-                                        $eMsgTpl, $module, $bootstrapClass
+                                        $eMsgTpl,
+                                        $module,
+                                        $bootstrapClass
                                     )
                                 );
                             }

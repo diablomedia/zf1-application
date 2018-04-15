@@ -63,7 +63,7 @@ class Zend_Application_Resource_Translate extends Zend_Application_Resource_Reso
 
             if (!isset($options['content']) && !isset($options['data'])) {
                 throw new Zend_Application_Resource_Exception('No translation source data provided.');
-            } else if (array_key_exists('content', $options) && array_key_exists('data', $options)) {
+            } elseif (array_key_exists('content', $options) && array_key_exists('data', $options)) {
                 throw new Zend_Application_Resource_Exception(
                     'Conflict on translation source data: choose only one key between content and data.'
                 );

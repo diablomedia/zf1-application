@@ -68,9 +68,9 @@ class Zend_Application_Module_BootstrapTest extends PHPUnit\Framework\TestCase
     {
         require_once dirname(__FILE__) . '/../_files/ZfModuleBootstrap.php';
         $bootstrap = new ZfModule_Bootstrap($this->application);
-        $module = $bootstrap->getModuleName();
-        $loader = $bootstrap->getResourceLoader();
-        $this->assertNotNull($loader, "resource loader is unexpectedly NULL");
+        $module    = $bootstrap->getModuleName();
+        $loader    = $bootstrap->getResourceLoader();
+        $this->assertNotNull($loader, 'resource loader is unexpectedly NULL');
         $this->assertEquals($module, $loader->getNamespace());
     }
 
@@ -97,7 +97,7 @@ class Zend_Application_Module_BootstrapTest extends PHPUnit\Framework\TestCase
     public function testShouldPullModuleNamespacedOptionsWhenPresent()
     {
         $options = array(
-            'foo' => 'bar',
+            'foo'      => 'bar',
             'ZfModule' => array(
                 'foo' => 'baz',
             )
@@ -143,7 +143,7 @@ class Zend_Application_Module_BootstrapTest extends PHPUnit\Framework\TestCase
         ));
         $appBootstrap = $this->application->getBootstrap();
         $appBootstrap->bootstrap('FrontController');
-        $front = $appBootstrap->getResource('FrontController');
+        $front     = $appBootstrap->getResource('FrontController');
         $bootstrap = new ZfModule_Bootstrap($appBootstrap);
         $bootstrap->bootstrap('FrontController');
         $test = $bootstrap->getResource('FrontController');
@@ -160,10 +160,10 @@ class Zend_Application_Module_BootstrapTest extends PHPUnit\Framework\TestCase
         require_once dirname(__FILE__) . '/../_files/ZfModuleBootstrap.php';
         $this->application->setOptions(array(
             'resources' => array(
-                'modules' => array(),
+                'modules'         => array(),
                 'frontController' => array(
-                    'baseUrl'             => '/foo',
-                    'moduleDirectory'     => dirname(__FILE__) . '/../_files/modules',
+                    'baseUrl'         => '/foo',
+                    'moduleDirectory' => dirname(__FILE__) . '/../_files/modules',
                 ),
             ),
             'bootstrap' => array(
@@ -192,10 +192,10 @@ class Zend_Application_Module_BootstrapTest extends PHPUnit\Framework\TestCase
         require_once dirname(__FILE__) . '/../_files/ZfModuleBootstrap.php';
         $this->application->setOptions(array(
             'resources' => array(
-                'modules' => array(),
+                'modules'         => array(),
                 'frontController' => array(
-                    'baseUrl'             => '/foo',
-                    'moduleDirectory'     => dirname(__FILE__) . '/../_files/modules',
+                    'baseUrl'         => '/foo',
+                    'moduleDirectory' => dirname(__FILE__) . '/../_files/modules',
                 ),
             ),
             'pluginPaths' => array(

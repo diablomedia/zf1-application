@@ -132,13 +132,15 @@ class Zend_Application
                 $_options = array();
                 foreach ($options['config'] as $tmp) {
                     $_options = $this->mergeOptions(
-                        $_options, $this->_loadConfig($tmp)
+                        $_options,
+                        $this->_loadConfig($tmp)
                     );
                 }
                 $options = $this->mergeOptions($_options, $options);
             } else {
                 $options = $this->mergeOptions(
-                    $this->_loadConfig($options['config']), $options
+                    $this->_loadConfig($options['config']),
+                    $options
                 );
             }
         }

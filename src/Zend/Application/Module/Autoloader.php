@@ -53,27 +53,27 @@ class Zend_Application_Module_Autoloader extends Zend_Loader_Autoloader_Resource
         $basePath = $this->getBasePath();
         $this->addResourceTypes(
             array(
-                'dbtable'    => array(
+                'dbtable' => array(
                     'namespace' => 'Model_DbTable',
                     'path'      => 'models/DbTable',
                 ),
-                'mappers'    => array(
+                'mappers' => array(
                     'namespace' => 'Model_Mapper',
                     'path'      => 'models/mappers',
                 ),
-                'form'       => array(
+                'form' => array(
                     'namespace' => 'Form',
                     'path'      => 'forms',
                 ),
-                'model'      => array(
+                'model' => array(
                     'namespace' => 'Model',
                     'path'      => 'models',
                 ),
-                'plugin'     => array(
+                'plugin' => array(
                     'namespace' => 'Plugin',
                     'path'      => 'plugins',
                 ),
-                'service'    => array(
+                'service' => array(
                     'namespace' => 'Service',
                     'path'      => 'services',
                 ),

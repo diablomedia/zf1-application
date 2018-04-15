@@ -45,7 +45,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $this->autoloader = Zend_Loader_Autoloader::getInstance();
 
         $this->application = new Zend_Application('testing');
-        $this->error = false;
+        $this->error       = false;
     }
 
     public function tearDown()
@@ -154,7 +154,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
             ),
         ));
         $loader = $bootstrap->getPluginLoader();
-        $paths = $loader->getPaths('Foo');
+        $paths  = $loader->getPaths('Foo');
         $this->assertInternalType('array', $paths);
     }
 
@@ -245,8 +245,8 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
     {
         require_once dirname(__FILE__) . '/../_files/ZfAppBootstrap.php';
         $bootstrap = new ZfAppBootstrap($this->application);
-        $resource1  = new Zend_Application_Resource_View();
-        $resource2  = new Zend_Application_Resource_View();
+        $resource1 = new Zend_Application_Resource_View();
+        $resource2 = new Zend_Application_Resource_View();
         $bootstrap->registerPluginResource($resource1)
                   ->registerPluginResource($resource2);
         $test = $bootstrap->getPluginResource('view');
@@ -333,8 +333,8 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
     {
         require_once dirname(__FILE__) . '/../_files/ZfAppBootstrap.php';
         $bootstrap = new ZfAppBootstrap($this->application);
-        $loader = $bootstrap->getPluginLoader();
-        $paths  = $loader->getPaths('Zend_Application_Resource');
+        $loader    = $bootstrap->getPluginLoader();
+        $paths     = $loader->getPaths('Zend_Application_Resource');
         $this->assertNotEmpty($paths);
     }
 
@@ -570,7 +570,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $this->application->setOptions(array(
             'resources' => array(
                 'Zend_Application_Bootstrap_BootstrapAbstractTest_View' => array(),
-                'view' => array(),
+                'view'                                                  => array(),
             ),
         ));
         $bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
@@ -591,7 +591,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $this->application->setOptions(array(
             'resources' => array(
                 'Zend_Application_Bootstrap_BootstrapAbstractTest_Layout' => array(),
-                'layout' => array(),
+                'layout'                                                  => array(),
             ),
         ));
         $bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
@@ -618,7 +618,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
             ),
         ));
         $bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
-        $resource = $bootstrap->getPluginResource('foo');
+        $resource  = $bootstrap->getPluginResource('foo');
         $this->assertTrue($resource->bootstrapSetInConstructor, var_export(get_object_vars($resource), 1));
     }
 
@@ -636,7 +636,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         ));
         set_error_handler(array($this, 'handleError'));
         $bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
-        $resource = $bootstrap->getPluginResource('FrontController');
+        $resource  = $bootstrap->getPluginResource('FrontController');
         restore_error_handler();
         $this->assertTrue(false === $this->error, $this->error);
     }
@@ -752,8 +752,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
     }
 }
 
-class Zend_Application_Bootstrap_BootstrapAbstractTest_View
-    extends Zend_Application_Resource_ResourceAbstract
+class Zend_Application_Bootstrap_BootstrapAbstractTest_View extends Zend_Application_Resource_ResourceAbstract
 {
     public function init()
     {
@@ -761,10 +760,9 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest_View
     }
 }
 
-class Zend_Application_Bootstrap_BootstrapAbstractTest_Layout
-    extends Zend_Application_Resource_ResourceAbstract
+class Zend_Application_Bootstrap_BootstrapAbstractTest_Layout extends Zend_Application_Resource_ResourceAbstract
 {
-    public $_explicitType = 'BootstrapAbstractTestLayout';
+    public $_explicitType             = 'BootstrapAbstractTestLayout';
     public $bootstrapSetInConstructor = false;
 
     public function __construct($options = null)
@@ -781,8 +779,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest_Layout
     }
 }
 
-class Zend_Application_Bootstrap_BootstrapAbstractTest_Foo
-    extends Zend_Application_Resource_ResourceAbstract
+class Zend_Application_Bootstrap_BootstrapAbstractTest_Foo extends Zend_Application_Resource_ResourceAbstract
 {
     public $bootstrapSetInConstructor = false;
 
@@ -800,8 +797,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest_Foo
     }
 }
 
-class Zend_Application_Bootstrap_BootstrapAbstractTest_OptionKeys
-    extends Zend_Application_Bootstrap_Bootstrap
+class Zend_Application_Bootstrap_BootstrapAbstractTest_OptionKeys extends Zend_Application_Bootstrap_Bootstrap
 {
     public function getOptionKeys()
     {

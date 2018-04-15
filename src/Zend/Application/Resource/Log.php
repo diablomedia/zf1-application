@@ -30,8 +30,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Application_Resource_Log
-    extends Zend_Application_Resource_ResourceAbstract
+class Zend_Application_Resource_Log extends Zend_Application_Resource_ResourceAbstract
 {
     /**
      * @var Zend_Log
@@ -69,7 +68,7 @@ class Zend_Application_Resource_Log
     {
         if (null === $this->_log) {
             $options = $this->getOptions();
-            $log = Zend_Log::factory($options);
+            $log     = Zend_Log::factory($options);
             $this->setLog($log);
         }
         return $this->_log;

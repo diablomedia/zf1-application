@@ -95,13 +95,13 @@ class Zend_Application_Resource_ResourceAbstractTest extends PHPUnit\Framework\T
     {
         require_once dirname(__FILE__) . '/../_files/resources/Foo.php';
         $resource = new Zend_Application_BootstrapTest_Resource_Foo();
-        $options1  = array(
+        $options1 = array(
             'foo' => 'bar',
         );
-        $options2  = array(
+        $options2 = array(
             'bar' => 'baz',
         );
-        $options3  = array(
+        $options3 = array(
             'foo' => 'BAR',
         );
         $expected = $resource->mergeOptions($options1, $options2);
@@ -126,7 +126,7 @@ class Zend_Application_Resource_ResourceAbstractTest extends PHPUnit\Framework\T
     public function testConstructorAcceptsArrayConfiguration()
     {
         require_once dirname(__FILE__) . '/../_files/resources/Foo.php';
-        $options  = array(
+        $options = array(
             'foo' => 'bar',
         );
         $resource = new Zend_Application_BootstrapTest_Resource_Foo($options);
@@ -136,10 +136,10 @@ class Zend_Application_Resource_ResourceAbstractTest extends PHPUnit\Framework\T
     public function testConstructorAcceptsZendConfigObject()
     {
         require_once dirname(__FILE__) . '/../_files/resources/Foo.php';
-        $options  = array(
+        $options = array(
             'foo' => 'bar',
         );
-        $config = new Zend_Config($options);
+        $config   = new Zend_Config($options);
         $resource = new Zend_Application_BootstrapTest_Resource_Foo($config);
         $this->assertEquals($options, $resource->getOptions());
     }

@@ -59,7 +59,7 @@ class Zend_Application_Resource_View extends Zend_Application_Resource_ResourceA
     public function getView()
     {
         if (null === $this->_view) {
-            $options = $this->getOptions();
+            $options     = $this->getOptions();
             $this->_view = new Zend_View($options);
 
             if (isset($options['doctype'])) {

@@ -101,7 +101,7 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
         ));
         $this->bootstrap->bootstrap();
 
-        $front   = $this->bootstrap->getResource('FrontController');
+        $front = $this->bootstrap->getResource('FrontController');
 
         $request = $front->getRequest();
         $request->setRequestUri('/zfappbootstrap');
@@ -126,7 +126,7 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
         $application = new Zend_Application('testing', array(
             'appnamespace' => 'Application',
         ));
-        $bootstrap   = new Zend_Application_Bootstrap_Bootstrap(
+        $bootstrap = new Zend_Application_Bootstrap_Bootstrap(
             $application
         );
         $this->assertTrue($bootstrap->getResourceLoader() instanceof Zend_Application_Module_Autoloader);
@@ -142,7 +142,7 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
         $application = new Zend_Application('testing', array(
             'appnamespace' => 'Default',
         ));
-        $bootstrap   = new Zend_Application_Bootstrap_Bootstrap(
+        $bootstrap = new Zend_Application_Bootstrap_Bootstrap(
             $application
         );
         $al = $bootstrap->getResourceLoader();
@@ -160,7 +160,7 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
                  'appnamespace' => null,
             )
         );
-        $bootstrap   = new Zend_Application_Bootstrap_Bootstrap(
+        $bootstrap = new Zend_Application_Bootstrap_Bootstrap(
             $application
         );
 

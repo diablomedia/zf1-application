@@ -41,9 +41,9 @@ class Zend_Application_Resource_RouterTest extends PHPUnit\Framework\TestCase
         }
 
         Zend_Loader_Autoloader::resetInstance();
-        $this->autoloader = Zend_Loader_Autoloader::getInstance();
+        $this->autoloader  = Zend_Loader_Autoloader::getInstance();
         $this->application = new Zend_Application('testing');
-        $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
+        $this->bootstrap   = new Zend_Application_Bootstrap_Bootstrap($this->application);
 
         Zend_Controller_Front::getInstance()->resetInstance();
     }
@@ -98,7 +98,7 @@ class Zend_Application_Resource_RouterTest extends PHPUnit\Framework\TestCase
                     'action'     => 'show',
                     'year'       => 2000,
                 ),
-                'reqs'     => array(
+                'reqs' => array(
                     'year' => '\d+',
                 ),
             ),
@@ -107,7 +107,7 @@ class Zend_Application_Resource_RouterTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Router($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
-        $router   = $resource->getRouter();
+        $router = $resource->getRouter();
         $this->assertTrue($router->hasRoute('archive'));
         $route = $router->getRoute('archive');
         $this->assertTrue($route instanceof Zend_Controller_Router_Route);

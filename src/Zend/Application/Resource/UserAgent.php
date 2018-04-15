@@ -63,7 +63,7 @@ class Zend_Application_Resource_UserAgent extends Zend_Application_Resource_Reso
     public function getUserAgent()
     {
         if (null === $this->_userAgent) {
-            $options = $this->getOptions();
+            $options          = $this->getOptions();
             $this->_userAgent = new Zend_Http_UserAgent($options);
         }
         

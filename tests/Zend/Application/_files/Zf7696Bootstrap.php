@@ -29,9 +29,9 @@
  */
 class Zf7696Bootstrap extends Zend_Application_Bootstrap_BootstrapAbstract
 {
-    public $barExecuted = 0;
-    public $fooExecuted = 0;
-    public $executedFooResource = false;
+    public $barExecuted            = 0;
+    public $fooExecuted            = 0;
+    public $executedFooResource    = false;
     public $executedFooBarResource = false;
 
     protected $_arbitraryValue;
@@ -52,7 +52,7 @@ class Zf7696Bootstrap extends Zend_Application_Bootstrap_BootstrapAbstract
 
     protected function _initBarbaz()
     {
-        $o = new stdClass();
+        $o      = new stdClass();
         $o->baz = 'Baz';
         return $o;
     }
