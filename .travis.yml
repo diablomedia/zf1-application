@@ -54,11 +54,13 @@ jobs:
       env: COMPOSER_ARGS="--prefer-lowest"
     - php: 7.2
     - php: 7.3
-      env: COMPOSER_ARGS="--prefer-lowest"
+      env: COMPOSER_ARGS="--prefer-lowest --ignore-platform-reqs"
     - php: 7.3
+      env: COMPOSER_ARGS="--ignore-platform-reqs"
     - php: nightly
-      env: COMPOSER_ARGS="--prefer-lowest"
+      env: COMPOSER_ARGS="--prefer-lowest --ignore-platform-reqs"
     - php: nightly
+      env: COMPOSER_ARGS="--ignore-platform-reqs"
 
     - stage: style check
       php: 7.2
