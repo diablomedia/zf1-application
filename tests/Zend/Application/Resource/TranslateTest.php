@@ -137,7 +137,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         $options1 = array('foo' => 'bar');
         $options2 = array_merge_recursive(
             $this->_translationOptions,
-                                          array('data' => array('message4' => 'bericht4'))
+            array('data' => array('message4' => 'bericht4'))
         );
 
         $translate = new Zend_Translate(Zend_Translate::AN_ARRAY, $options1);
