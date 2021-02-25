@@ -1,5 +1,5 @@
 # grumphp.yml
-parameters:
+grumphp:
     tasks:
         composer:
             strict: true
@@ -9,6 +9,7 @@ parameters:
             config: .php_cs
         phpstan:
             configuration: phpstan.neon
+            memory_limit: 768M
         phpunit:
             metadata:
                 priority: 100

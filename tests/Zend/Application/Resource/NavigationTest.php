@@ -30,7 +30,7 @@
  */
 class Zend_Application_Resource_NavigationTest extends PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         // Store original autoloaders
         $this->loaders = spl_autoload_functions();
@@ -50,7 +50,7 @@ class Zend_Application_Resource_NavigationTest extends PHPUnit\Framework\TestCas
         Zend_Registry::_unsetInstance();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Zend_Navigation_Page::setDefaultPageType();
 

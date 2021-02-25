@@ -30,7 +30,7 @@
  */
 class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         // Store original autoloaders
         $this->loaders = spl_autoload_functions();
@@ -51,7 +51,7 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
         $this->resetFrontController();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // Restore original autoloaders
         $loaders = spl_autoload_functions();

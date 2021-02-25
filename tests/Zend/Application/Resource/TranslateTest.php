@@ -56,7 +56,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
      */
     protected $bootstrap;
 
-    public function setUp()
+    public function setUp(): void
     {
         // Store original autoloaders
         $this->loaders = spl_autoload_functions();
@@ -76,7 +76,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         Zend_Registry::_unsetInstance();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // Restore original autoloaders
         $loaders = spl_autoload_functions();
@@ -243,7 +243,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         $resource->init()->translate('untranslated');
         $event = current($options['log'][0]->events);
 
-        $this->assertInternalType('array', $event);
+        $this->assertIsArray($event);
         $this->assertArrayHasKey('message', $event);
         $this->assertEquals(
             "Untranslated message within 'en': untranslated",

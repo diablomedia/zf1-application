@@ -30,7 +30,7 @@
  */
 class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         // Store original autoloaders
         $this->loaders = spl_autoload_functions();
@@ -50,7 +50,7 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
         Zend_Registry::_unsetInstance();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // Restore original autoloaders
         $loaders = spl_autoload_functions();
