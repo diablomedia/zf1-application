@@ -25,7 +25,7 @@
         "diablomedia/zendframework1-navigation": "^1.0.0",
         "diablomedia/zendframework1-session": "^1.0.0",
         "diablomedia/zendframework1-translate": "^1.0.0",
-        "diablomedia/zendframework1-view": "^1.0.0",
+        "diablomedia/zendframework1-view": "^1.0.4",
         "diablomedia/zendframework1-view-helper-navigation": "^1.0.0"
     },
     "autoload": {
@@ -42,7 +42,6 @@
         }
     },
     "require-dev": {
-        "diablomedia/zendframework1-xml": "^1.0.5",
         "phpunit/phpunit": "^8.4",
         "phpstan/phpstan": "0.12.82",
         "friendsofphp/php-cs-fixer": "2.18.3",
