@@ -80,7 +80,7 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
     public function testConstructorInstantiatesAutoloader()
     {
         $autoloader = $this->application->getAutoloader();
-        $this->assertTrue($autoloader instanceof Zend_Loader_Autoloader);
+        $this->assertInstanceOf(Zend_Loader_Autoloader::class, $autoloader);
     }
 
     public function testConstructorShouldSetOptionsWhenProvided()
@@ -205,7 +205,7 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
     public function testShouldUseBaseBootstrapClassByDefaultIfNoBootstrapRegistered()
     {
         $bootstrap = $this->application->getBootstrap();
-        $this->assertTrue($bootstrap instanceof Zend_Application_Bootstrap_Bootstrap);
+        $this->assertInstanceOf(Zend_Application_Bootstrap_Bootstrap::class, $bootstrap);
     }
 
     public function testPassingStringBootstrapPathOptionShouldRegisterBootstrap()
@@ -214,7 +214,7 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
             'bootstrap' => dirname(__FILE__) . '/_files/modules/default/Bootstrap.php',
         ));
         $bootstrap = $this->application->getBootstrap();
-        $this->assertTrue($bootstrap instanceof Bootstrap);
+        $this->assertInstanceOf(Bootstrap::class, $bootstrap);
     }
 
     public function testPassingArrayBootstrapOptionShouldRegisterBootstrapBasedOnPathOption()
@@ -225,7 +225,7 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
             ),
         ));
         $bootstrap = $this->application->getBootstrap();
-        $this->assertTrue($bootstrap instanceof Bootstrap);
+        $this->assertInstanceOf(Bootstrap::class, $bootstrap);
     }
 
     public function testPassingArrayBootstrapOptionShouldRegisterBootstrapBasedOnPathAndClassOption()
@@ -237,7 +237,7 @@ class Zend_Application_ApplicationTest extends PHPUnit\Framework\TestCase
             ),
         ));
         $bootstrap = $this->application->getBootstrap();
-        $this->assertTrue($bootstrap instanceof ZfAppBootstrap);
+        $this->assertInstanceOf(ZfAppBootstrap::class, $bootstrap);
     }
 
     /**

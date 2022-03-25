@@ -105,7 +105,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Translate($this->_translationOptions);
         $resource->setBootstrap($this->bootstrap);
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Translate);
+        $this->assertInstanceOf(Zend_Translate::class, $test);
     }
 
     public function testOptionsPassedToResourceAreUsedToSetLocaleState()
@@ -125,7 +125,7 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
             $resource->getTranslate();
             $this->fail('Expected Zend_Application_Resource_Exception');
         } catch (Zend_Application_Resource_Exception $e) {
-            $this->assertTrue($e instanceof Zend_Application_Resource_Exception);
+            $this->assertInstanceOf(Zend_Application_Resource_Exception::class, $e);
         }
     }
 

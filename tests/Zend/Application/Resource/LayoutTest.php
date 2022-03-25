@@ -79,7 +79,7 @@ class Zend_Application_Resource_LayoutTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Layout(array());
         $resource->setBootstrap($this->bootstrap);
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Layout);
+        $this->assertInstanceOf(Zend_Layout::class, $test);
     }
 
     public function testOptionsPassedToResourceAreUsedToSetLayoutState()

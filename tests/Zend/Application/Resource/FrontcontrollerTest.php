@@ -294,7 +294,7 @@ class Zend_Application_Resource_FrontcontrollerTest extends PHPUnit\Framework\Te
             'controllerDirectory' => dirname(__FILE__),
         ));
         $front = $resource->init();
-        $this->assertTrue($front instanceof Zend_Controller_Front);
+        $this->assertInstanceOf(Zend_Controller_Front::class, $front);
     }
 
     public function testNoBaseUrlShouldBeSetIfEmptyBaseUrlProvidedInOptions()

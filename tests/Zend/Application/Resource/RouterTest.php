@@ -77,7 +77,7 @@ class Zend_Application_Resource_RouterTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Router(array());
         $resource->setBootstrap($this->bootstrap);
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Controller_Router_Rewrite);
+        $this->assertInstanceOf(Zend_Controller_Router_Rewrite::class, $test);
     }
 
     public function testChainNameSeparatorIsParsedOnToRouter()
@@ -110,7 +110,7 @@ class Zend_Application_Resource_RouterTest extends PHPUnit\Framework\TestCase
         $router = $resource->getRouter();
         $this->assertTrue($router->hasRoute('archive'));
         $route = $router->getRoute('archive');
-        $this->assertTrue($route instanceof Zend_Controller_Router_Route);
+        $this->assertInstanceOf(Zend_Controller_Router_Route::class, $route);
         $this->assertEquals($options['routes']['archive']['defaults'], $route->getDefaults());
     }
 }
