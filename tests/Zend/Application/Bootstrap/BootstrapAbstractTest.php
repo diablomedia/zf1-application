@@ -307,7 +307,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $bootstrap->registerPluginResource('view');
         $test = $bootstrap->getPluginResources();
         foreach ($test as $type => $resource) {
-            $this->assertTrue($resource instanceof Zend_Application_Resource_Resource);
+            $this->assertInstanceOf(Zend_Application_Resource_Resource::class, $resource);
         }
     }
 
@@ -455,7 +455,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         require_once dirname(__FILE__) . '/../_files/ZfAppBootstrap.php';
         $bootstrap = new ZfAppBootstrap($this->application);
         $container = $bootstrap->getContainer();
-        $this->assertTrue($container instanceof Zend_Registry);
+        $this->assertInstanceOf(Zend_Registry::class, $container);
     }
 
     public function testContainerShouldAggregateReturnValuesFromClassResources()
@@ -559,7 +559,7 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
         $bootstrap->bootstrap('Zend_Application_Bootstrap_BootstrapAbstractTest_View');
         $resource = $bootstrap->getResource('Zend_Application_Bootstrap_BootstrapAbstractTest_View');
-        $this->assertTrue($resource instanceof Zend_Application_Bootstrap_BootstrapAbstractTest_View, var_export(array_keys($bootstrap->getPluginResources()), 1));
+        $this->assertInstanceOf(Zend_Application_Bootstrap_BootstrapAbstractTest_View::class, $resource, var_export(array_keys($bootstrap->getPluginResources()), 1));
     }
 
     /**
@@ -579,8 +579,8 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $bootstrap->bootstrap('view');
         $resource2 = $bootstrap->getResource('view');
         $this->assertNotSame($resource1, $resource2);
-        $this->assertTrue($resource1 instanceof Zend_Application_Bootstrap_BootstrapAbstractTest_View, var_export(array_keys($bootstrap->getPluginResources()), 1));
-        $this->assertTrue($resource2 instanceof Zend_View);
+        $this->assertInstanceOf(Zend_Application_Bootstrap_BootstrapAbstractTest_View::class, $resource1, var_export(array_keys($bootstrap->getPluginResources()), 1));
+        $this->assertInstanceOf(Zend_View::class, $resource2);
     }
 
     /**
@@ -600,8 +600,8 @@ class Zend_Application_Bootstrap_BootstrapAbstractTest extends PHPUnit\Framework
         $bootstrap->bootstrap('layout');
         $resource2 = $bootstrap->getResource('layout');
         $this->assertNotSame($resource1, $resource2);
-        $this->assertTrue($resource1 instanceof Zend_Application_Bootstrap_BootstrapAbstractTest_Layout, var_export(array_keys($bootstrap->getPluginResources()), 1));
-        $this->assertTrue($resource2 instanceof Zend_Layout);
+        $this->assertInstanceOf(Zend_Application_Bootstrap_BootstrapAbstractTest_Layout::class, $resource1, var_export(array_keys($bootstrap->getPluginResources()), 1));
+        $this->assertInstanceOf(Zend_Layout::class, $resource2);
     }
 
     /**

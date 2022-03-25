@@ -168,7 +168,7 @@ class Zend_Application_Resource_ModulesTest extends PHPUnit\Framework\TestCase
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
         $bootstraps = $resource->getExecutedBootstraps();
-        $this->assertTrue($bootstraps instanceof ArrayObject);
+        $this->assertInstanceOf(ArrayObject::class, $bootstraps);
     }
 }
 

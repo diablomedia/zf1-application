@@ -78,7 +78,7 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Locale(array());
         $resource->setBootstrap($this->bootstrap);
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Locale);
+        $this->assertInstanceOf(Zend_Locale::class, $test);
     }
 
     public function testOptionsPassedToResourceAreUsedToSetLocaleState()
@@ -132,7 +132,7 @@ class Zend_Application_Resource_LocaleTest extends PHPUnit\Framework\TestCase
         $resource = new Zend_Application_Resource_Locale($config);
         $resource->init();
         $backend = Zend_Locale::getCache()->getBackend();
-        $this->assertTrue($backend instanceof Zend_Cache_Backend_BlackHole);
+        $this->assertInstanceOf(Zend_Cache_Backend_BlackHole::class, $backend);
         Zend_Locale::removeCache();
     }
 

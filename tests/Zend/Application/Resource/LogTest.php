@@ -83,7 +83,7 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
             'Mock' => array('writerName' => 'Mock'),
         ));
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Log);
+        $this->assertInstanceOf(Zend_Log::class, $test);
     }
 
     public function testOptionsPassedToResourceAreUsedToInitializeLog()
@@ -101,7 +101,7 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
         $resource->init();
 
         $log = $resource->getLog();
-        $this->assertTrue($log instanceof Zend_Log);
+        $this->assertInstanceOf(Zend_Log::class, $log);
 
         $log->log($message = 'logged-message', Zend_Log::INFO);
         rewind($stream);
@@ -160,7 +160,7 @@ class Zend_Application_Resource_LogTest extends PHPUnit\Framework\TestCase
         $resource->setBootstrap($this->bootstrap);
         $log = $resource->init();
 
-        $this->assertTrue($log instanceof Zend_Log);
+        $this->assertInstanceOf(Zend_Log::class, $log);
 
         $log->log($message, Zend_Log::INFO);
         rewind($stream);

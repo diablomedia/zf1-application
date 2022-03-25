@@ -79,7 +79,7 @@ class Zend_Application_Resource_CacheManagerTest extends PHPUnit\Framework\TestC
     {
         $resource = new Zend_Application_Resource_Cachemanager(array());
         $manager  = $resource->init();
-        $this->assertTrue($manager instanceof Zend_Cache_Manager);
+        $this->assertInstanceOf(Zend_Cache_Manager::class, $manager);
     }
 
     public function testShouldMergeConfigsIfOptionsPassedForDefaultCacheTemplate()
@@ -149,7 +149,7 @@ class Zend_Application_Resource_CacheManagerTest extends PHPUnit\Framework\TestC
         $resource = new Zend_Application_Resource_Cachemanager($options);
         $manager  = $resource->init();
         $cache    = $manager->getCache('foo');
-        $this->assertTrue($cache instanceof Zend_Cache_Core);
+        $this->assertInstanceOf(Zend_Cache_Core::class, $cache);
     }
 
     /**
@@ -177,7 +177,7 @@ class Zend_Application_Resource_CacheManagerTest extends PHPUnit\Framework\TestC
         $resource = new Zend_Application_Resource_Cachemanager($options);
         $manager  = $resource->init();
         $cache    = $manager->getCache('foo')->getBackend();
-        $this->assertTrue($cache instanceof Zend_Cache_Backend_ZendServer_Disk);
+        $this->assertInstanceOf(Zend_Cache_Backend_ZendServer_Disk::class, $cache);
     }
 
     /**
@@ -199,7 +199,7 @@ class Zend_Application_Resource_CacheManagerTest extends PHPUnit\Framework\TestC
         $manager  = $resource->init();
         $cache    = $manager->getCache('zf9737');
         $this->assertTrue($cache->getBackend() instanceof Zend_Cache_Backend_Custom_Naming);
-        $this->assertTrue($cache instanceof Zend_Cache_Frontend_CustomNaming);
+        $this->assertInstanceOf(Zend_Cache_Frontend_CustomNaming::class, $cache);
     }
 
     /**

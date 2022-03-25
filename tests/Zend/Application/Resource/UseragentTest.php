@@ -85,7 +85,7 @@ class Zend_Application_Resource_UseragentTest extends PHPUnit\Framework\TestCase
         $resource->init();
         $ua      = $resource->getUserAgent();
         $storage = $ua->getStorage();
-        $this->assertTrue($storage instanceof Zend_Http_UserAgent_Storage_NonPersistent);
+        $this->assertInstanceOf(Zend_Http_UserAgent_Storage_NonPersistent::class, $storage);
     }
 
     public function testInjectsUserAgentIntoViewHelperWhenViewResourcePresent()

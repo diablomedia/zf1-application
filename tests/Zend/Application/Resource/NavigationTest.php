@@ -84,7 +84,7 @@ class Zend_Application_Resource_NavigationTest extends PHPUnit\Framework\TestCas
         $resource = new Zend_Application_Resource_Navigation(array());
         $resource->setBootstrap($this->bootstrap);
         $test = $resource->init();
-        $this->assertTrue($test instanceof Zend_Navigation);
+        $this->assertInstanceOf(Zend_Navigation::class, $test);
         $this->bootstrap->unregisterPluginResource('view');
     }
 

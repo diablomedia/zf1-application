@@ -192,6 +192,6 @@ class Zend_Application_Bootstrap_BootstrapTest extends PHPUnit\Framework\TestCas
         $request->setRequestUri('/zfappbootstrap');
 
         $result = $this->bootstrap->run();
-        $this->assertTrue($result instanceof Zend_Controller_Response_Abstract);
+        $this->assertInstanceOf(Zend_Controller_Response_Abstract::class, $result);
     }
 }
