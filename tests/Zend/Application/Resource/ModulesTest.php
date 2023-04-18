@@ -30,6 +30,12 @@
  */
 class Zend_Application_Resource_ModulesTest extends PHPUnit\Framework\TestCase
 {
+    protected $loaders;
+    protected $autoloader;
+    protected $application;
+    protected $bootstrap;
+    protected $front;
+
     public function setUp(): void
     {
         // Store original autoloaders

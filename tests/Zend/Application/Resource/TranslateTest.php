@@ -56,6 +56,8 @@ class Zend_Application_Resource_TranslateTest extends PHPUnit\Framework\TestCase
      */
     protected $bootstrap;
 
+    protected $loaders;
+
     public function setUp(): void
     {
         // Store original autoloaders
